@@ -61,7 +61,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 extension ViewController: TableViewManagerProtocol {
     // Return cell indentifier for provided indexPath
     func tableView(tableView: UITableView, cellIdentifierForIndexPath indexPath: NSIndexPath) -> TableViewCellsIdentifiers {
-    return .TextTableViewCell
+        return .TextTableViewCell
     }
 
     // Configure cell as before in tableView(_:cellForRowAtIndexPath:)
