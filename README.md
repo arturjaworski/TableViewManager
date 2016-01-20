@@ -60,6 +60,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
 ### Step 4
 
+Implemment `TableViewManagerProtocol`.
+
 ```swift
 extension ViewController: TableViewManagerProtocol {
     // Return cell indentifier for provided indexPath
