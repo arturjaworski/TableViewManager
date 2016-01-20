@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
-                       Pod registers Nibs and allows you to handle all custom TableView cells with enum. Written in Swift.
+                       Pod registers Nibs and allows you to handle all custom UITableViewCells with enum. Written in Swift.
                        DESC
 
   s.homepage         = "https://github.com/arturjaworski/TableViewManager"
