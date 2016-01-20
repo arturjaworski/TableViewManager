@@ -27,7 +27,9 @@ Create `TableViewCellsIdentifiers` enum in your View Controller.
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
-    // Cell identifier should be the same as you set in .xib file. Because of .xib file name should be the same as cell identifier, you have to have separate file for every cell (but you can redefine it, see: step 4).
+    // 1. Cell identifier should be the same as you set in .xib file.
+    // 2. Every cell should be in separated file named as identifier,
+    //    but you can redefine file name and put multiple cells in one file (see: step 4)
     enum TableViewCellsIdentifiers: String {
         case TextTableViewCell
         case ImageTableViewCell
