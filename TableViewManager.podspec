@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "TableViewManager"
-  s.version          = "0.1"
+  s.version          = "0.1.1"
   s.summary          = "Using custom UITableViewCell using Nib easier."
 
 # This description is used to generate tags and improve search results.

@@ -28,7 +28,7 @@ public extension TableViewManagerProtocol where Self: protocol<UITableViewDelega
         return cell
     }
     
-    private func dequeueReusableCell(tableView: UITableView, forIdentifier cellIdentifier: TableViewCellsIdentifiers) -> UITableViewCell {
+    func dequeueReusableCell(tableView: UITableView, forIdentifier cellIdentifier: TableViewCellsIdentifiers) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier.rawValue) {
             return cell
         }
