@@ -6,7 +6,7 @@
 
 ## Description
 
-Pod registers Nibs and allows you to handle all custom UITableViewCells with enum. Written in Swift.
+Pod registers cells (Nibs and dynamic one) and allows you to handle all UITableViewCells with enum. Written in Swift.
 
 ## Installation
 
@@ -17,43 +17,18 @@ it, simply add the following line to your Podfile:
 pod "TableViewManager"
 ```
 
-## Quick Start
+## Quick Start (in 3 steps!)
 
 ### Step 1
 
-Remember about `import TableViewManager`.
+Remember about `import TableViewManager`. Make sure that `ViewController` is your UITableView's delegate.
 
 ### Step 2
-
-Create `TableViewCellsIdentifiers` enum in your View Controller.
-
-```swift
-class ViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-
-    // 1. Cell identifier should be the same as you set in .xib file.
-    // 2. Every cell should be in separated file named as identifier,
-    //    but you can redefine file name and put multiple cells in one file (see: step 4)
-    enum TableViewCellsIdentifiers: String {
-        case TextTableViewCell
-        case ImageTableViewCell
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-    }
-}
-```
-
-### Step 3
 
 Implemment `tableView(_:cellForRowAtIndexPath:)` as below.
 
 ```swift
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension ViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         return self.tableViewManager(tableView, cellForRowAtIndexPath: indexPath)
     }
@@ -62,25 +37,31 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 }
 ```
 
-### Step 4
+### Step 3
 
-Implemment `TableViewManagerProtocol`.
+Implemment `TableViewManager` protocol.
 
 ```swift
-extension ViewController: TableViewManagerProtocol {
+extension ViewController: TableViewManager, EnumTableViewManager {
+    // Cell identifier should be the same as you set in .xib or storyboard file.
+    enum TableViewCellsIdentifiers: String {
+        case TextTableViewCell
+        case ImageTableViewCell
+    }
+
     // Return cell indentifier for provided indexPath
     func tableView(tableView: UITableView, cellIdentifierForIndexPath indexPath: NSIndexPath) -> TableViewCellsIdentifiers {
         return .TextTableViewCell
     }
 
     // Configure cell as before in tableView(_:cellForRowAtIndexPath:)
-    func tableView(tableView: UITableView, configureCell cell: UITableViewCell, withCellIdentifier cellIdentifier: TableViewCellsIdentifiers, forIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, configureCell cell: UITableViewCell, forIndexPath indexPath: NSIndexPath) {
         if let cell = cell as? TextTableViewCell {
             cell.myLabel.text = "Lorem Ipsum"
         }
     }
 
-    // Implemment if you want to change default Nib name
+    // Implemment if you want to change default Nib name, which is the same as identifier
     //func tableView(tableView: UITableView, nibNameForCellIdentifier cellIdentifier: TableViewCellsIdentifiers) -> String? {
     //    return nil
     //}
@@ -88,6 +69,8 @@ extension ViewController: TableViewManagerProtocol {
 ```
 
 That's all!
+
+You can also use `TableViewManager` without enum. It could be useful when you creating external data source object.
 
 ## License
 
