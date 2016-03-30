@@ -21,7 +21,7 @@ pod "TableViewManager"
 
 ### Step 1
 
-Remember about `import TableViewManager`. Make sure that `ViewController` is your UITableView's delegate.
+Remember about `import TableViewManager`. Make sure that `ViewController` is your UITableView's data source.
 
 ### Step 2
 
