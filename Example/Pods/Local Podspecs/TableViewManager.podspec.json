@@ -1,8 +1,8 @@
 {
   "name": "TableViewManager",
-  "version": "0.1",
+  "version": "0.2",
   "summary": "Using custom UITableViewCell using Nib easier.",
-  "description": "Pod registers Nibs and allows you to handle all custom TableView cells with enum. Written in Swift.",
+  "description": "Pod registers Nibs and allows you to handle all custom UITableViewCells with enum. Written in Swift.",
   "homepage": "https://github.com/arturjaworski/TableViewManager",
   "license": "MIT",
   "authors": {
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/arturjaworski/TableViewManager.git",
-    "tag": "0.1"
+    "tag": "0.2"
   },
   "platforms": {
     "ios": "8.0"
